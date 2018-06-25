@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fiapp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.activity.LoginActivity">
+
+
+    <EditText
+        android:id="@+id/login_edt_rm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="86dp"
+        android:layout_marginRight="86dp"
+        android:background="@drawable/background_edit_text"
+        android:gravity="center"
+        android:hint="RM"
+        android:padding="16dp"
+        android:textSize="20sp" />
+
+
+    <EditText
+        android:id="@+id/login_edt_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="86dp"
+        android:layout_marginRight="86dp"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/background_edit_text"
+        android:gravity="center"
+        android:hint="SENHA"
+        android:padding="16dp" />
+
+
+    <Button
+        android:id="@+id/login_btn_entrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="26dp"
+        android:background="@drawable/background_button"
+        android:text="Entrar"
+        android:textColor="@android:color/white" />
+
+</LinearLayout>
