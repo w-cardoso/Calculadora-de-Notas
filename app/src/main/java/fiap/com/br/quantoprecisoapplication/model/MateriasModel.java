@@ -14,33 +14,33 @@ public class MateriasModel {
 
     @SerializedName("nac1")
     @Expose
-    private Double nac1;
+    private double nac1;
 
     @SerializedName("am1")
     @Expose
-    private Double am1;
+    private double am1;
 
     @SerializedName("ps1")
     @Expose
-    private Double ps1;
+    private double ps1;
 
     @SerializedName("md1")
     @Expose
-    private Double md1;
+    private double md1;
     @SerializedName("nac2")
     @Expose
-    private Double nac2;
+    private double nac2;
 
     @SerializedName("am2")
     @Expose
-    private Double am2;
+    private double am2;
     @SerializedName("ps2")
     @Expose
-    private Double ps2;
+    private double ps2;
 
     @SerializedName("md2")
     @Expose
-    private Double md2;
+    private double md2;
 
     @SerializedName("aulas")
     @Expose
@@ -56,23 +56,26 @@ public class MateriasModel {
 
     @SerializedName("presenca")
     @Expose
-    private Integer presenca;
+    private double presenca;
 
     @SerializedName("mp")
     @Expose
-    private Double mp;
+    private double mp;
 
     @SerializedName("exame")
     @Expose
-    private Double exame;
+    private double exame;
 
     @SerializedName("mf")
     @Expose
-    private Double mf;
+    private double mf;
 
     @SerializedName("situacao")
     @Expose
     private String situacao;
+
+    public MateriasModel() {
+    }
 
     public Integer getId() {
         return id;
@@ -90,67 +93,67 @@ public class MateriasModel {
         this.disciplina = disciplina;
     }
 
-    public Double getNac1() {
+    public double getNac1() {
         return nac1;
     }
 
-    public void setNac1(Double nac1) {
+    public void setNac1(double nac1) {
         this.nac1 = nac1;
     }
 
-    public Double getAm1() {
+    public double getAm1() {
         return am1;
     }
 
-    public void setAm1(Double am1) {
+    public void setAm1(double am1) {
         this.am1 = am1;
     }
 
-    public Double getPs1() {
+    public double getPs1() {
         return ps1;
     }
 
-    public void setPs1(Double ps1) {
+    public void setPs1(double ps1) {
         this.ps1 = ps1;
     }
 
-    public Double getMd1() {
+    public double getMd1() {
         return md1;
     }
 
-    public void setMd1(Double md1) {
+    public void setMd1(double md1) {
         this.md1 = md1;
     }
 
-    public Double getNac2() {
+    public double getNac2() {
         return nac2;
     }
 
-    public void setNac2(Double nac2) {
+    public void setNac2(double nac2) {
         this.nac2 = nac2;
     }
 
-    public Double getAm2() {
+    public double getAm2() {
         return am2;
     }
 
-    public void setAm2(Double am2) {
+    public void setAm2(double am2) {
         this.am2 = am2;
     }
 
-    public Double getPs2() {
+    public double getPs2() {
         return ps2;
     }
 
-    public void setPs2(Double ps2) {
+    public void setPs2(double ps2) {
         this.ps2 = ps2;
     }
 
-    public Double getMd2() {
+    public double getMd2() {
         return md2;
     }
 
-    public void setMd2(Double md2) {
+    public void setMd2(double md2) {
         this.md2 = md2;
     }
 
@@ -178,35 +181,35 @@ public class MateriasModel {
         this.faltas2 = faltas2;
     }
 
-    public Integer getPresenca() {
+    public double getPresenca() {
         return presenca;
     }
 
-    public void setPresenca(Integer presenca) {
+    public void setPresenca(double presenca) {
         this.presenca = presenca;
     }
 
-    public Double getMp() {
+    public double getMp() {
         return mp;
     }
 
-    public void setMp(Double mp) {
+    public void setMp(double mp) {
         this.mp = mp;
     }
 
-    public Double getExame() {
+    public double getExame() {
         return exame;
     }
 
-    public void setExame(Double exame) {
+    public void setExame(double exame) {
         this.exame = exame;
     }
 
-    public Double getMf() {
+    public double getMf() {
         return mf;
     }
 
-    public void setMf(Double mf) {
+    public void setMf(double mf) {
         this.mf = mf;
     }
 

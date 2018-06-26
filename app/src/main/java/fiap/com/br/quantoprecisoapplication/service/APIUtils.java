@@ -4,7 +4,7 @@ public class APIUtils {
 
     private APIUtils() {}
 
-    public static final String BASE_URL = "http://jsonplaceholder.typicode.com/";
+    public static final String BASE_URL = "http://a52fd6fa.ngrok.io/";
 
     public static APIService getAPIService() {
 
