@@ -12,7 +12,6 @@ import java.util.List;
 
 import fiap.com.br.quantoprecisoapplication.R;
 import fiap.com.br.quantoprecisoapplication.model.MateriasModel;
-import fiap.com.br.quantoprecisoapplication.ui.activity.FirstSemester;
 
 public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.MateriasViewHolder> {
     private Context context;
