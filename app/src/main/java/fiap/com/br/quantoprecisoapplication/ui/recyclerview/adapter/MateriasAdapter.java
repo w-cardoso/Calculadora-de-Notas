@@ -16,11 +16,11 @@ import fiap.com.br.quantoprecisoapplication.model.MateriasModel;
 
 public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.MateriasViewHolder> {
     private Context context;
-    private List<MateriasModel> materias;
+    private List<MateriasModel> listaMaterias;
 
-    public MateriasAdapter(Context context, List<MateriasModel> materias) {
+    public MateriasAdapter(Context context, List<MateriasModel> listaMaterias) {
         this.context = context;
-        this.materias = materias;
+        this.listaMaterias = listaMaterias;
     }
 
     @NonNull
@@ -32,26 +32,34 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
 
     @Override
     public void onBindViewHolder(@NonNull MateriasViewHolder holder, int position) {
+        MateriasModel materia = listaMaterias.get(position);
+        holder.configuraInformacoes(materia);
 
-        holder.nome.setText(materias.get(position).getDisciplina());
-        holder.nac.setText(String.valueOf(materias.get(position).getNac1()));
-        holder.am.setText(String.valueOf(materias.get(position).getAm1()));
-        holder.ps.setText(String.valueOf(materias.get(position).getPs1()));
-        holder.media.setText(String.valueOf(materias.get(position).getMd1()));
+
     }
 
     @Override
     public int getItemCount() {
-        return materias.size();
+        return listaMaterias.size();
     }
 
     public class MateriasViewHolder extends RecyclerView.ViewHolder {
-
+        private MateriasModel listaMaterias;
         private final TextView nome;
         private final EditText nac;
         private final EditText am;
         private final EditText ps;
         private final EditText media;
+
+        private final EditText nac2;
+        private final EditText am2;
+        private final EditText ps2;
+        private final EditText media2;
+
+        private final EditText pr;
+        private final EditText mp;
+        private final EditText exa;
+        private final EditText mf;
 
         public MateriasViewHolder(View itemView) {
             super(itemView);
@@ -59,10 +67,49 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
             nac = itemView.findViewById(R.id.item_edt_nac);
             am = itemView.findViewById(R.id.item_edt_am);
             ps = itemView.findViewById(R.id.item_edt_ps);
-            media = itemView.findViewById(R.id.item_edt_ps);
+            media = itemView.findViewById(R.id.item_edt_md);
+
+            nac2 = itemView.findViewById(R.id.item_edt_nac2);
+            am2 = itemView.findViewById(R.id.item_edt_am2);
+            ps2 = itemView.findViewById(R.id.item_edt_ps2);
+            media2 = itemView.findViewById(R.id.item_edt_md2);
+
+            pr = itemView.findViewById(R.id.item_edt_pr);
+            mp = itemView.findViewById(R.id.item_edt_mp);
+            exa = itemView.findViewById(R.id.item_edt_exa);
+            mf = itemView.findViewById(R.id.item_edt_mf);
+
+
         }
 
 
+        public void configuraInformacoes(MateriasModel listaMaterias) {
+            this.listaMaterias = listaMaterias;
+            preencherCampos(listaMaterias);
+
+
+        }
+
+        private void preencherCampos(MateriasModel listaMaterias) {
+            nome.setText(listaMaterias.getDisciplina());
+            nac.setText(String.valueOf(listaMaterias.getNac1()));
+            am.setText(String.valueOf(listaMaterias.getAm1()));
+            ps.setText(String.valueOf(listaMaterias.getPs1()));
+            media.setText(String.valueOf(listaMaterias.getMd1()));
+
+            String edtNac2 = nac2.getText().toString();
+            String edtAm2 = am2.getText().toString();
+            String edtPs2 = ps2.getText().toString();
+
+            double calculoMedia2 = (Double.parseDouble(edtNac2) * 0.2)
+                    + (Double.parseDouble(edtAm2) * 0.3)
+                    + (Double.parseDouble(edtPs2) * 0.5);
+
+            media2.setText(String.valueOf(calculoMedia2));
+
+
+            //am.setText(String.valueOf(edtAm2));
+        }
     }
 }
 

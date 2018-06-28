@@ -102,6 +102,7 @@
                             android:text="1° SEM" />
 
                         <EditText
+
                             android:id="@+id/item_edt_nac"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -114,7 +115,6 @@
 
                         <EditText
                             android:id="@+id/item_edt_am"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -126,7 +126,6 @@
 
                         <EditText
                             android:id="@+id/item_edt_ps"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -138,7 +137,6 @@
 
                         <EditText
                             android:id="@+id/item_edt_md"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -204,6 +202,7 @@
 
 
                     </TableRow>
+
                 </TableLayout>
             </LinearLayout>
 
@@ -282,7 +281,6 @@
 
                         <EditText
                             android:id="@+id/item_edt_pr"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -294,7 +292,6 @@
 
                         <EditText
                             android:id="@+id/item_edt_mp"
-
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"

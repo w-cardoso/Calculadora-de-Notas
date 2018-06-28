@@ -1,6 +1,8 @@
 package fiap.com.br.quantoprecisoapplication.ui.activity;
 
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
     private String senha;
     private RecyclerView recyclerView;
     private ArrayList<MateriasModel> materias;
+    private ProgressDialog mProgressDialog;
+    private Dialog dialog;
 
 
     @Override
@@ -47,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
 
         apiService = APIUtils.getAPIService();
         sendPost(matricula, senha);
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setIndeterminate(true);
+        mProgressDialog.setMessage("Loading...");
+        mProgressDialog.show();
+
 
     }
 
@@ -58,8 +67,9 @@ public class MainActivity extends AppCompatActivity {
                 adapter = new MateriasAdapter(MainActivity.this, response.body());
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setAdapter(adapter);
+                mProgressDialog.dismiss();
 
-                Toast.makeText(MainActivity.this, response.message().toString(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, response.message().toString(), Toast.LENGTH_LONG).show();
             }
 
             @Override
