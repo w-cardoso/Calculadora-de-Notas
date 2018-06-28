@@ -74,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<MateriasModel>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "Usuario não cadastrado", Toast.LENGTH_LONG).show();
-
+                Toast.makeText(MainActivity.this, t+"Usuario não cadastrado", Toast.LENGTH_LONG).show();
+                mProgressDialog.dismiss();
             }
 
 

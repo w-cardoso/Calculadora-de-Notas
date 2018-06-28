@@ -294,6 +294,7 @@
 
                         <EditText
                             android:id="@+id/item_edt_mp"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
@@ -337,6 +338,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/item_llayout_buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -347,28 +349,43 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="36dp"
-                    android:layout_marginRight="36dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/background_button"
                     android:text="Calcular Semestre"
                     android:textColor="@android:color/white"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
+
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/item_btn_calcular_exame"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/background_button"
+                    android:text="Calcular Média Final"
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp" />
 
                 <Button
                     android:id="@+id/item_btn_calcular_final"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="26dp"
-                    android:layout_marginRight="26dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/background_button"
                     android:text="Calcular Média Final"
                     android:textColor="@android:color/white"
-                    android:textSize="12sp" />
+                    android:textSize="10sp" />
             </LinearLayout>
 
         </LinearLayout>
