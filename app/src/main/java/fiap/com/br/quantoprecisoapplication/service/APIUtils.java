@@ -4,7 +4,7 @@ public class APIUtils {
 
     private APIUtils() {}
 
-    public static final String BASE_URL = "http://a52fd6fa.ngrok.io/";
+    public static final String BASE_URL = "http://b7369f29.ngrok.io";
 
     public static APIService getAPIService() {
 

@@ -11,6 +11,7 @@
 
 
     <EditText
+        android:text="73833"
         android:id="@+id/login_edt_rm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,6 +25,8 @@
 
 
     <EditText
+        android:text="wpapsk"
+        android:inputType="textPassword"
         android:id="@+id/login_edt_senha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

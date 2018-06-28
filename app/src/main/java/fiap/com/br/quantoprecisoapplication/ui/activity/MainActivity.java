@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fiap.com.br.quantoprecisoapplication.R;
@@ -20,10 +21,12 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private MateriasAdapter adapter;
+    private List<MateriasModel> data;
     private APIService apiService;
     private String matricula;
     private String senha;
     private RecyclerView recyclerView;
+    private ArrayList<MateriasModel> materias;
 
 
     @Override
@@ -38,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
             matricula = extras.getString("matricula");
             senha = extras.getString("password");
         }
+        materias = new ArrayList<>();
+        recyclerView = findViewById(R.id.main_semester_rcv);
+
+
         apiService = APIUtils.getAPIService();
         sendPost(matricula, senha);
 
@@ -48,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
         apiService.savePost(matricula, password).enqueue(new Callback<List<MateriasModel>>() {
             @Override
             public void onResponse(Call<List<MateriasModel>> call, Response<List<MateriasModel>> response) {
-                recyclerView = findViewById(R.id.main_semester_rcv);
+                adapter = new MateriasAdapter(MainActivity.this, response.body());
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setAdapter(adapter);
 
                 Toast.makeText(MainActivity.this, response.message().toString(), Toast.LENGTH_LONG).show();
             }

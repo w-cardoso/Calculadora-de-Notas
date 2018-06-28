@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -31,8 +32,12 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
 
     @Override
     public void onBindViewHolder(@NonNull MateriasViewHolder holder, int position) {
-        MateriasModel materia = materias.get(position);
-        holder.setBings(materia);
+
+        holder.nome.setText(materias.get(position).getDisciplina());
+        holder.nac.setText(String.valueOf(materias.get(position).getNac1()));
+        holder.am.setText(String.valueOf(materias.get(position).getAm1()));
+        holder.ps.setText(String.valueOf(materias.get(position).getPs1()));
+        holder.media.setText(String.valueOf(materias.get(position).getMd1()));
     }
 
     @Override
@@ -42,7 +47,7 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
 
     public class MateriasViewHolder extends RecyclerView.ViewHolder {
 
-        private final EditText nome;
+        private final TextView nome;
         private final EditText nac;
         private final EditText am;
         private final EditText ps;
@@ -57,15 +62,7 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
             media = itemView.findViewById(R.id.item_edt_ps);
         }
 
-        public void setBings(MateriasModel materia) {
-            String nomeMateria = nome.getText().toString();
-            String notaNac = nac.getText().toString();
-            String notaAm = am.getText().toString();
-            String notaPs = ps.getText().toString();
-            String notaMedia = media.getText().toString();
 
-
-        }
     }
 }
 
