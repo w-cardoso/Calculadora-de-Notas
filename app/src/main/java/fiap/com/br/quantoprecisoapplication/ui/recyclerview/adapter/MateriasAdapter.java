@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -45,6 +47,7 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
 
     public class MateriasViewHolder extends RecyclerView.ViewHolder {
         private MateriasModel listaMaterias;
+        private Button btnCalcularSemestre, btnCalcularFinal;
         private final TextView nome;
         private final EditText nac;
         private final EditText am;
@@ -60,6 +63,8 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
         private final EditText mp;
         private final EditText exa;
         private final EditText mf;
+
+        private final LinearLayout layoutSituacao;
 
         public MateriasViewHolder(View itemView) {
             super(itemView);
@@ -79,6 +84,10 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
             exa = itemView.findViewById(R.id.item_edt_exa);
             mf = itemView.findViewById(R.id.item_edt_mf);
 
+            layoutSituacao = itemView.findViewById(R.id.item_llayout_situacao);
+
+            btnCalcularSemestre = itemView.findViewById(R.id.item_btn_calcular_segundo);
+            btnCalcularFinal = itemView.findViewById(R.id.item_btn_calcular_final);
 
         }
 
@@ -97,18 +106,38 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
             ps.setText(String.valueOf(listaMaterias.getPs1()));
             media.setText(String.valueOf(listaMaterias.getMd1()));
 
-            String edtNac2 = nac2.getText().toString();
-            String edtAm2 = am2.getText().toString();
-            String edtPs2 = ps2.getText().toString();
 
-            double calculoMedia2 = (Double.parseDouble(edtNac2) * 0.2)
-                    + (Double.parseDouble(edtAm2) * 0.3)
-                    + (Double.parseDouble(edtPs2) * 0.5);
+            btnCalcularSemestre.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final String edtNac2 = nac2.getText().toString();
+                    final String edtAm2 = am2.getText().toString();
+                    final String edtPs2 = ps2.getText().toString();
+                    final double valorNac, valorAm, valorPs;
+                    valorNac = Double.parseDouble(edtNac2);
+                    valorAm = Double.parseDouble(edtAm2);
+                    valorPs = Double.parseDouble(edtPs2);
+                    double calculoMedia2 = (valorNac * 0.2)
+                            + (valorAm * 0.3)
+                            + (valorPs * 0.5);
 
-            media2.setText(String.valueOf(calculoMedia2));
+                    media2.setText(String.valueOf(calculoMedia2));
 
+                }
+            });
 
-            //am.setText(String.valueOf(edtAm2));
+            btnCalcularFinal.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    layoutSituacao.setVisibility(View.VISIBLE);
+                    String edtMedia1 = media.getText().toString();
+                    String edtMedia2 = media.getText().toString();
+                    double value1 = Double.parseDouble(edtMedia1);
+                    double value2 = Double.parseDouble(edtMedia2);
+                    double mediaParcial = (value1 + value2) / 2;
+                    mp.setText(String.valueOf(mediaParcial));
+                }
+            });
         }
     }
 }
