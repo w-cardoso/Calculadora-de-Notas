@@ -49,7 +49,7 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
 
     public class MateriasViewHolder extends RecyclerView.ViewHolder {
         private MateriasModel listaMaterias;
-        private Button btnCalcularSemestre, btnCalcularFinal, btnCalcularExame;
+        private Button btnCalcularSemestre, btnCalcularExame;
         private final TextView nome;
         private final EditText nac;
         private final EditText am;
@@ -65,10 +65,11 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
         private final EditText mp;
         private final EditText exa;
         private final EditText mf;
+        private final TextView txtMessage;
 
         private final LinearLayout layoutSituacao;
         private LinearLayout layoutButton;
-        private double calculoMedia2;
+        private double calculoMedia2, mediaParcial;
 
         public MateriasViewHolder(View itemView) {
             super(itemView);
@@ -88,12 +89,14 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
             exa = itemView.findViewById(R.id.item_edt_exa);
             mf = itemView.findViewById(R.id.item_edt_mf);
 
+            txtMessage = itemView.findViewById(R.id.item_txt_msg);
+
             layoutSituacao = itemView.findViewById(R.id.item_llayout_situacao);
             layoutButton = itemView.findViewById(R.id.item_llayout_buttons);
 
-            btnCalcularSemestre = itemView.findViewById(R.id.item_btn_calcular_segundo);
-            btnCalcularExame = itemView.findViewById(R.id.item_btn_calcular_exame);
-            btnCalcularFinal = itemView.findViewById(R.id.item_btn_calcular_final);
+            btnCalcularSemestre = itemView.findViewById(R.id.item_btn_calcular);
+            btnCalcularExame = itemView.findViewById(R.id.item_btn_calcular_final);
+
 
         }
 
@@ -130,25 +133,40 @@ public class MateriasAdapter extends RecyclerView.Adapter<MateriasAdapter.Materi
 
                     media2.setText(String.valueOf(calculoMedia2));
 
-                }
-            });
-
-            btnCalcularFinal.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
                     layoutSituacao.setVisibility(View.VISIBLE);
                     String edtMedia1 = media.getText().toString();
                     double value1 = Double.parseDouble(edtMedia1);
-                    double mediaParcial = (value1 + calculoMedia2) / 2;
+                    mediaParcial = (value1 + calculoMedia2) / 2;
                     mediaParcial = Double.valueOf(String.format(Locale.US, "%.1f", mediaParcial));
                     mp.setText(String.valueOf(mediaParcial));
 
                     if (mediaParcial < 6) {
-                        layoutButton.setWeightSum(3);
+                        mp.setTextColor(context.getResources().getColor(R.color.colorRed));
+                        layoutButton.setWeightSum(2);
                         btnCalcularExame.setVisibility(View.VISIBLE);
+                        exa.setFocusable(true);
+
+                    } else {
+                        mp.setTextColor(context.getResources().getColor(R.color.colorBlue));
+                        btnCalcularSemestre.setVisibility(View.GONE);
+                        txtMessage.setVisibility(View.VISIBLE);
                     }
+
+
                 }
             });
+
+            btnCalcularExame.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    double exame = (6 - mediaParcial) + 6;
+                    exa.setEnabled(true);
+                    exa.setText(String.valueOf(exame));
+
+                }
+            });
+
+
         }
     }
 }

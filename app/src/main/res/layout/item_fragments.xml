@@ -341,11 +341,12 @@
                 android:id="@+id/item_llayout_buttons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="1">
 
                 <Button
-                    android:id="@+id/item_btn_calcular_segundo"
+                    android:id="@+id/item_btn_calcular"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -359,21 +360,6 @@
                     android:textSize="10sp" />
 
                 <Button
-                    android:visibility="gone"
-                    android:id="@+id/item_btn_calcular_exame"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/background_button"
-                    android:text="Calcular Média Final"
-                    android:textColor="@android:color/white"
-                    android:textSize="10sp" />
-
-                <Button
                     android:id="@+id/item_btn_calcular_final"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -383,10 +369,25 @@
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/background_button"
-                    android:text="Calcular Média Final"
+                    android:text="Calcular Exame"
                     android:textColor="@android:color/white"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:visibility="gone" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_txt_msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/background_edit_text"
+                android:gravity="center"
+                android:text="Essa matéria já era"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
 
         </LinearLayout>
 
